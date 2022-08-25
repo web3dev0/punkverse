@@ -31,30 +31,33 @@ const createIncludedActions = () =>
   ]);
 
 const configureStore = devMode => {
-  let store;
-  if (devMode) {
-    store = createStore(
-      undoable(reducer, {
-        filter: createIncludedActions(),
-        debug: true,
-        ignoreInitialState: true
-      })
-    );
 
-    store.dispatch({
-      type: SHOW_SPINNER
-    });
-  } else {
+  let store = createStore(
+    undoable(reducer, {
+      filter: createIncludedActions(),
+      debug: true,
+      ignoreInitialState: true
+    })
+  );
+  store.dispatch({
+    type: SHOW_SPINNER
+  });
+
+  // if (devMode) {
     
-    store = createStore(
-      undoable(reducer, {
-        filter: createIncludedActions(),
-        debug: false,
-        ignoreInitialState: true
-      }),
-      {}
-    );
-  }
+  // } else {
+  //   const initialState = window.__INITIAL_STATE__;
+  //   initialState.present = fromJS(initialState.present);
+
+  //   store = createStore(
+  //     undoable(reducer, {
+  //       filter: createIncludedActions(),
+  //       debug: false,
+  //       ignoreInitialState: true
+  //     }),
+  //     initialState
+  //   );
+  // }
 
   return store;
 };
