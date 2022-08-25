@@ -5,7 +5,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
-  mode: "production",
+  mode: "development",
   entry: [
     './src/utils/polyfills.js',
     './src/index.jsx',
@@ -25,8 +25,8 @@ const config = {
       filename: "css/main.css"
     }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"'
-    })
+      'process.env.NODE_ENV': '"development"'
+    }),
   ],
   target: "web",
   stats: false,
