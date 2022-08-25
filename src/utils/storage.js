@@ -1,6 +1,4 @@
-import { exampleCat } from '../../examples/import-export/json-cat';
-
-const STORAGE_KEY = 'pixelart-react-v3-0-0';
+const STORAGE_KEY = 'punkverse-v-0-0';
 
 /*
  *  Storage data structure
@@ -32,7 +30,7 @@ export function initStorage(storage) {
   storage.setItem(
     STORAGE_KEY,
     JSON.stringify({
-      stored: [exampleCat], // Load an example project data by default
+      stored: [], // Load an example project data by default
       current: 0
     })
   );

@@ -10,7 +10,7 @@ const initialSetup = (dispatch, storage) => {
   dispatch(actionCreators.hideSpinner());
 
   const dataStored = getDataFromStorage(storage);
-  if (dataStored) {
+  if (dataStored && dataStored.current) {
     // Load current project from the storage
     const currentProjectIndex = dataStored.current;
     if (currentProjectIndex >= 0) {

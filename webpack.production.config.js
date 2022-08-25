@@ -2,6 +2,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
   mode: "production",
@@ -10,6 +11,10 @@ const config = {
     './src/index.jsx',
   ],
   plugins: [
+    new HtmlWebpackPlugin({
+      template: './build/index.html',
+      inject: true
+    }),
     new CopyWebpackPlugin([
       { from: 'src/assets/favicon.ico', to: 'favicon.ico' },
       { from: 'src/assets/apple-touch-icon.png', to: 'apple-touch-icon.png' },
