@@ -45,16 +45,14 @@ const configureStore = devMode => {
       type: SHOW_SPINNER
     });
   } else {
-    const initialState = window.__INITIAL_STATE__;
-    initialState.present = fromJS(initialState.present);
-
+    
     store = createStore(
       undoable(reducer, {
         filter: createIncludedActions(),
         debug: false,
         ignoreInitialState: true
       }),
-      initialState
+      {}
     );
   }
 
